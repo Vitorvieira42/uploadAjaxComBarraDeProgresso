@@ -1,0 +1,99 @@
+
+{
+  "name": "documentos",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nome", "categoria", "tipo", "status", "uploadedBy", "createdAt"],
+        "properties": {
+          "nome": {
+            "bsonType": "string",
+            "description": "Nome do documento"
+          },
+          "descricao": {
+            "bsonType": "string",
+            "description": "Descrição do documento"
+          },
+          "categoria": {
+            "bsonType": "string",
+            "enum": ["contrato", "proposta", "relatorio", "ata", "certificado", "fiscal", "rh", "juridico", "outros"],
+            "description": "Categoria do documento"
+          },
+          "tipo": {
+            "bsonType": "string",
+            "enum": ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "img"],
+            "description": "Tipo de arquivo"
+          },
+          "tamanho": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Tamanho do arquivo em bytes"
+          },
+          "url": {
+            "bsonType": "string",
+            "description": "URL do arquivo"
+          },
+          "versao": {
+            "bsonType": "string",
+            "description": "Versão do documento"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["ativo", "arquivado", "vencido", "em_revisao"],
+            "description": "Status do documento"
+          },
+          "dataVencimento": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de vencimento (se aplicável)"
+          },
+          "clienteId": {
+            "bsonType": "string",
+            "description": "ID do cliente relacionado"
+          },
+          "projetoId": {
+            "bsonType": "string",
+            "description": "ID do projeto relacionado"
+          },
+          "funcionarioId": {
+            "bsonType": "string",
+            "description": "ID do funcionário relacionado"
+          },
+          "uploadedBy": {
+            "bsonType": "string",
+            "description": "ID do usuário que fez upload"
+          },
+          "tags": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Tags para categorização"
+          },
+          "confidencial": {
+            "bsonType": "bool",
+            "description": "Documento confidencial"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização do registro"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

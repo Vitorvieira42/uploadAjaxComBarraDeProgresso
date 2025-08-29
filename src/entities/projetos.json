@@ -1,0 +1,99 @@
+
+{
+  "name": "projetos",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nome", "clienteId", "status", "dataInicio", "orcamento", "responsavelId", "createdAt"],
+        "properties": {
+          "nome": {
+            "bsonType": "string",
+            "description": "Nome do projeto"
+          },
+          "descricao": {
+            "bsonType": "string",
+            "description": "Descrição detalhada do projeto"
+          },
+          "clienteId": {
+            "bsonType": "string",
+            "description": "ID do cliente associado"
+          },
+          "responsavelId": {
+            "bsonType": "string",
+            "description": "ID do funcionário responsável"
+          },
+          "equipe": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "IDs dos funcionários da equipe"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["planejamento", "em_andamento", "pausado", "concluido", "cancelado"],
+            "description": "Status atual do projeto"
+          },
+          "prioridade": {
+            "bsonType": "string",
+            "enum": ["baixa", "media", "alta", "urgente"],
+            "description": "Prioridade do projeto"
+          },
+          "dataInicio": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de início do projeto"
+          },
+          "dataFimPrevista": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data prevista para conclusão"
+          },
+          "dataFimReal": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data real de conclusão"
+          },
+          "orcamento": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Orçamento total do projeto"
+          },
+          "valorGasto": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Valor já gasto no projeto"
+          },
+          "percentualConcluido": {
+            "bsonType": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentual de conclusão"
+          },
+          "observacoes": {
+            "bsonType": "string",
+            "description": "Observações sobre o projeto"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização do registro"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

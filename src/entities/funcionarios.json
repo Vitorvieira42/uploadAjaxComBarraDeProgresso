@@ -1,0 +1,96 @@
+
+{
+  "name": "funcionarios",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nome", "cpf", "cargo", "departamento", "salario", "dataAdmissao", "status", "createdAt"],
+        "properties": {
+          "nome": {
+            "bsonType": "string",
+            "description": "Nome completo do funcionário"
+          },
+          "cpf": {
+            "bsonType": "string",
+            "pattern": "^[0-9]{11}$",
+            "description": "CPF do funcionário (apenas números)"
+          },
+          "rg": {
+            "bsonType": "string",
+            "description": "RG do funcionário"
+          },
+          "cargo": {
+            "bsonType": "string",
+            "description": "Cargo do funcionário"
+          },
+          "departamento": {
+            "bsonType": "string",
+            "enum": ["administracao", "financeiro", "recursos_humanos", "vendas", "operacoes", "ti"],
+            "description": "Departamento do funcionário"
+          },
+          "salario": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Salário do funcionário"
+          },
+          "dataAdmissao": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de admissão"
+          },
+          "dataDemissao": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de demissão (se aplicável)"
+          },
+          "telefone": {
+            "bsonType": "string",
+            "description": "Telefone de contato"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "Email do funcionário"
+          },
+          "endereco": {
+            "bsonType": "object",
+            "properties": {
+              "rua": {"bsonType": "string"},
+              "numero": {"bsonType": "string"},
+              "bairro": {"bsonType": "string"},
+              "cidade": {"bsonType": "string"},
+              "cep": {"bsonType": "string"},
+              "estado": {"bsonType": "string"}
+            }
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["ativo", "inativo", "ferias", "licenca"],
+            "description": "Status do funcionário"
+          },
+          "observacoes": {
+            "bsonType": "string",
+            "description": "Observações gerais"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização do registro"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

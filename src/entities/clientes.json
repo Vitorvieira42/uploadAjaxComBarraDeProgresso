@@ -1,0 +1,95 @@
+
+{
+  "name": "clientes",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nome", "tipo", "telefone", "email", "status", "createdAt"],
+        "properties": {
+          "nome": {
+            "bsonType": "string",
+            "description": "Nome do cliente ou razão social"
+          },
+          "tipo": {
+            "bsonType": "string",
+            "enum": ["pessoa_fisica", "pessoa_juridica"],
+            "description": "Tipo de cliente"
+          },
+          "cpfCnpj": {
+            "bsonType": "string",
+            "description": "CPF ou CNPJ do cliente"
+          },
+          "rgInscricaoEstadual": {
+            "bsonType": "string",
+            "description": "RG ou Inscrição Estadual"
+          },
+          "telefone": {
+            "bsonType": "string",
+            "description": "Telefone principal"
+          },
+          "telefoneSecundario": {
+            "bsonType": "string",
+            "description": "Telefone secundário"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "Email principal"
+          },
+          "endereco": {
+            "bsonType": "object",
+            "properties": {
+              "rua": {"bsonType": "string"},
+              "numero": {"bsonType": "string"},
+              "complemento": {"bsonType": "string"},
+              "bairro": {"bsonType": "string"},
+              "cidade": {"bsonType": "string"},
+              "cep": {"bsonType": "string"},
+              "estado": {"bsonType": "string"}
+            }
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["ativo", "inativo", "prospecto", "suspenso"],
+            "description": "Status do cliente"
+          },
+          "segmento": {
+            "bsonType": "string",
+            "description": "Segmento de atuação do cliente"
+          },
+          "observacoes": {
+            "bsonType": "string",
+            "description": "Observações sobre o cliente"
+          },
+          "dataUltimoContato": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data do último contato"
+          },
+          "valorTotalNegocios": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Valor total dos negócios"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização do registro"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
